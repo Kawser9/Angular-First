@@ -1,0 +1,17 @@
+<p>product works!</p>
+@for (item of data; track item.id) {
+
+  <p>Code: {{ item.productCode }}</p>
+  <p>Name: {{ item.productName }}</p>
+  <p>Category: {{ item.category_name }}</p>
+  <p>Quantity: {{ item.quantity }}</p>
+  <p>Price: {{ item.productPrice }}</p>
+
+ <!-- Display front view image -->
+<img [src]="'E:/EMS Image/uploads/products/' + item.frontImage" alt="Front View Image" style="max-width: 100%;">
+
+<!-- Display side view image -->
+<img [src]="'E:/EMS Image/uploads/products/' + item.sideImage" alt="Side View Image" style="max-width: 100%;">
+  <p>..............................</p>
+
+}

@@ -1,0 +1,23 @@
+<div>
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+      <a href="#" class="navbar-brand">Admin Panel</a>
+      <div class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a routerLink="/products" class="nav-link">Products</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/categories" class="nav-link">Categories</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/buttons" class="nav-link">Buttons</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/frontend" class="nav-link">Frontend Products</a>
+        </li>
+      </div>
+    </nav>
+
+    <div class="container mt-3">
+      <router-outlet></router-outlet>
+    </div>
+  </div>

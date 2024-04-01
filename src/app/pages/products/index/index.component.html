@@ -1,0 +1,47 @@
+<div class="container">
+    <div>
+        <h1 class="text-center">Product List</h1>
+    </div>
+    <div class="example-button-row">
+      <a [routerLink]="['/categories/create']" ><app-void-button [text]="'Add New'" [btnClass]="'primary'"></app-void-button></a>
+
+    </div>
+    <br>
+    <br>
+    <table datatable [dtOptions] = "dtoptions" class="table table-striped">
+        <thead>
+            <tr>
+                <th>Code</th>
+                <th>Name</th>
+                <th>Category</th>
+                <th>Unit Price</th>
+                <th>Quantity</th>
+                <th>Total Price</th>
+                <th>Opening Value</th>
+                <th>Reorder Quantity</th>
+                <th width="250px">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+                @for (item of data; track item.id) {
+                    <tr>
+                        <td>{{item.productCode}}</td>
+                        <td>{{item.productName}}</td>
+                        <td>{{item.category_name}}</td>
+                        <td>{{item.productPrice}}</td>
+                        <td>{{item.quantity}}</td>
+                        <td>{{item.total}}</td>
+                        <td>{{ item.opening_value || '00' }}</td>
+                        <td>{{item.reOrder_quantity || '00' }}</td>
+                        <td>
+                            <a routerLink=''mat-stroked-button>View</a>
+                            <a routerLink='/products/edit/{{item.id}}' mat-raised-button color="accent">Edit</a>
+                            <button mat-raised-button color="warn" (click)="deleteProduct($event,item.id)" >Delete</button>
+                        </td>
+                    </tr>
+                } @empty {
+                Empty list of users
+                }
+        </tbody>
+    </table>
+</div>

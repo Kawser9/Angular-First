@@ -1,0 +1,89 @@
+<div class="container card-body">
+  <div>
+      <h1>Create Product</h1>
+      <!-- <a mat-raised-button routerLink="/products/index"  class="btn btn-success" >Back</a> -->
+      <a routerLink="/products/index"><app-void-button [text]="'Back'" [btnClass]="'danger'"></app-void-button></a>
+  </div>
+  <br>
+  <form class="row g-3" [formGroup]="formData" >
+    <div class="col-md-6">
+      <mat-form-field class="col-sm-12">
+        <input type="text" placeholder="Select a category" matInput [formControl]="myControl" [matAutocomplete]="auto">
+        <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+          @for (option of filteredOptions | async; track option) {
+            <mat-option [value]="option">{{option.name}}</mat-option>
+          }
+        </mat-autocomplete>
+      </mat-form-field>
+      <div class="text-danger" *ngIf="myControl.invalid && (myControl.touched || myControl.dirty || isFormSubmitted)">
+        <span *ngIf="myControl.errors?.['required']">Category is Required</span>
+      </div>
+      <div class="row col-sm-12">
+        <div class="col-sm-6">
+          <label for="" class="form-label">Name*</label>
+          <input formControlName="productName" type="text" class="form-control" >
+          <div class="text-danger" *ngIf="formData.controls['productName'].invalid && (formData.controls['productName'].touched || formData.controls['productName'].dirty || isFormSubmitted)">
+            <span *ngIf="formData.controls['productName'].errors?.['required']">Name is Required</span>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <label for="" class="form-label">Code*</label>
+          <input min="0" formControlName="productCode" type="number" class="form-control" >
+          <div class="text-danger" *ngIf="formData.controls['productCode'].invalid && (formData.controls['productCode'].touched || formData.controls['productCode'].dirty || isFormSubmitted)">
+            <span *ngIf="formData.controls['productCode'].errors?.['required']">Code is Required</span>
+            <span *ngIf="formData.controls['productCode'].errors?.['min']">Munimum lenth is 0</span>
+          </div>
+        </div>
+      </div>
+      <br>
+      <div class="row col-sm-12">
+        <div class="col-sm-6">
+          <label for="" class="form-label">Unit Price*</label>
+          <input min="0" formControlName="productPrice" type="number" class="form-control" >
+          <div class="text-danger" *ngIf="formData.controls['productPrice'].invalid && (formData.controls['productPrice'].touched || formData.controls['productPrice'].dirty || isFormSubmitted)">
+            <span *ngIf="formData.controls['productPrice'].errors?.['required']">Unit Price is Required</span>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <label for="" class="form-label">Opening Quantity*</label>
+          <input min="0" formControlName="quantity" type="number" class="form-control">
+          <div class="text-danger" *ngIf="formData.controls['quantity'].invalid && (formData.controls['quantity'].touched || formData.controls['quantity'].dirty || isFormSubmitted)">
+            <span *ngIf="formData.controls['quantity'].errors?.['required']">Opening Quantity is Required</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="row col-sm-12">
+        <div class="col-sm-6">
+          <label for="frontImage" class="form-label">Front View Image*</label>
+          <input  formControlName="frontImage" type="file" class="form-control" name="frontImage" id="file1" >
+          <div class="text-danger" *ngIf="formData.controls['frontImage'].invalid && (formData.controls['frontImage'].touched || formData.controls['frontImage'].dirty || isFormSubmitted)">
+            <span *ngIf="formData.controls['frontImage'].errors?.['required']">Front View Image is Required</span>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <label for="sideImage" class="form-label">Side View Image</label>
+          <input formControlName="sideImage" type="file" class="form-control" name="sideImage" id="file2" >
+        </div>
+      </div>
+      <br>
+      <div class="row col-sm-12">
+        <div class="col-sm-6">
+          <label for="" class="form-label">Opening Value</label>
+          <input min="0" formControlName="opening_value" value="0" type="number" class="form-control" >
+        </div>
+        <div class="col-sm-6">
+          <label for="" class="form-label">Reorder Quantity</label>
+          <input min="0" formControlName="reOrder_quantity" type="number" class="form-control" >
+        </div>
+      </div>
+    </div>
+      <br>
+    <div class="col-md-6">
+      <!-- <a routerLink="/products/index"><app-void-button [text]="'Back'" [btnClass]="'info'"></app-void-button></a> -->
+      <app-void-button [text]="'Save'" [btnClass]="'info'" (click)="onSubmit($event)"></app-void-button>
+    </div>
+  </form>
+</div>
