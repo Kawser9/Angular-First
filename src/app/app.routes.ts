@@ -7,6 +7,7 @@ import { CategoriesIndexComponent } from './pages/categories/categories-index/ca
 import { CategoriesCreateComponent } from './pages/categories/categories-create/categories-create.component';
 import { ButtonsComponent } from './component/buttons/buttons.component';
 import { ProductComponent } from './frontend/product/product.component';
+import { ViewProductComponent } from './frontend/view-product/view-product.component';
 
 export const routes: Routes = [
     {path:'products', redirectTo:'products/index', pathMatch:'full'},
@@ -20,7 +21,8 @@ export const routes: Routes = [
 
     {path: 'buttons', component:ButtonsComponent},
 
-    {path: 'frontend', component:ProductComponent}
+    {path: 'frontend', component:ProductComponent},
+    {path: 'product/view/:id', component:ViewProductComponent},
 ];
 
 export class AppRoutingModule {}

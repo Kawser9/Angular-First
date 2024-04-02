@@ -1,17 +1,47 @@
-<p>product works!</p>
+
+<section class="articles">
+  @for (item of data; track item.id) {
+    <article>
+        <div class="article-wrapper">
+            <figure>
+                <img [src]="item.frontImage" alt="" />
+            </figure>
+            <div class="article-body">
+                <h2>{{ item.productName }}</h2>
+                <h4><span>Price :</span> {{ item.productPrice }}</h4>
+                <p>
+                  <span>Code:</span>{{ item.productCode }}
+                </p>
+                <a routerLink='/product/view/{{item.id}}'><app-void-button [text]="'View'" [btnClass]="'black'"></app-void-button></a>
+                <!-- <a routerLink='/product/view' class="read-more">
+                    Read more <span class="sr-only">about this is some title</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" viewBox="0 0 20 20"
+                        fill="currentColor">
+                        <path fill-rule="evenodd"
+                            d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd" />
+                    </svg>
+                </a> -->
+            </div>
+        </div>
+    </article>
+  }
+</section>
+
+
+<!--
 @for (item of data; track item.id) {
 
   <p>Code: {{ item.productCode }}</p>
   <p>Name: {{ item.productName }}</p>
   <p>Category: {{ item.category_name }}</p>
   <p>Quantity: {{ item.quantity }}</p>
-  <p>Price: {{ item.productPrice }}</p>
+  <p>Price: {{ item.productPrice }}</p> -->
 
  <!-- Display front view image -->
-<img [src]="'E:/EMS Image/uploads/products/' + item.frontImage" alt="Front View Image" style="max-width: 100%;">
+<!-- <img [src]="item.frontImage" alt="Front View Image" style="max-width: 100%;"> -->
 
 <!-- Display side view image -->
-<img [src]="'E:/EMS Image/uploads/products/' + item.sideImage" alt="Side View Image" style="max-width: 100%;">
-  <p>..............................</p>
+<!-- <img [src]="item.sideImage" alt="Side View Image" style="max-width: 100%;"> -->
 
-}
+<!-- } -->
