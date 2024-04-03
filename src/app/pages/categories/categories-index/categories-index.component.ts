@@ -7,6 +7,7 @@ import { ToastrModule, ToastrService } from 'ngx-toastr';
 import { CategoryService } from '../category.service';
 import { DataTablesModule } from 'angular-datatables';
 import { NgSelectModule } from '@ng-select/ng-select';
+import { OrderRequest } from '../../../component/class/class.model';
 
 @Component({
   selector: 'app-categories-index',
@@ -25,7 +26,6 @@ export class CategoriesIndexComponent implements OnInit{
  categoryForm: FormGroup;
  data: any =[];
  dtoptions: DataTables.Settings={};
-
  constructor(
   private http: HttpClient,
   private toastr: ToastrService,

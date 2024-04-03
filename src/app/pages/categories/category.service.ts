@@ -22,6 +22,10 @@ export class CategoryService {
     return this.http.post(`${this.baseurl}/categories/store`, obj)
   }
 
+  orderData():Observable<any>{
+    return this.http.get(`${this.baseurl}/categories/order/data`)
+  }
+
 
 
 }

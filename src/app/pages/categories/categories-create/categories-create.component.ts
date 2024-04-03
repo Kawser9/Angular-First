@@ -11,6 +11,9 @@ import { HttpClient } from '@angular/common/http';
 import { ToastrService } from 'ngx-toastr';
 import { VoidButtonComponent } from "../../../component/void-button/void-button.component";
 import { RouterLink } from '@angular/router';
+import { OrderRequest } from '../../../component/class/class.model';
+import { Console } from 'console';
+
 
 export interface Category {
   id: number;
@@ -39,6 +42,7 @@ export interface Category {
 export class CategoriesCreateComponent implements OnInit {
   myControl = new FormControl<string | Category>('',[Validators.required]);
   options: Category[] =[];
+  orderRequest?: OrderRequest;
   filteredOptions!: Observable<Category[]>;
   categories: any;
   formData:FormGroup;
@@ -60,6 +64,11 @@ export class CategoriesCreateComponent implements OnInit {
     });
   }
 
+  // ngOnInitt(): void {
+  //   this.CategoryService.getOrderData().subscribe(data => {
+  //     this.orderRequest = data;
+  //   });
+  // }
   ngOnInit() {
     this.filteredOptions = this.myControl.valueChanges.pipe(
       startWith(''),
@@ -69,6 +78,15 @@ export class CategoriesCreateComponent implements OnInit {
       })
     );
     this.getCategory();
+
+      // this.CategoryService.orderData().subscribe(data => {
+      //   this.orderRequest = data;
+      //   console.log(this.orderRequest);
+      // });
+      this.CategoryService.orderData().subscribe((data: OrderRequest) => {
+        this.orderRequest = data;
+        console.log(this.orderRequest);
+      });
   }
 
   displayFn(user: Category): string {
@@ -95,15 +113,15 @@ export class CategoriesCreateComponent implements OnInit {
     const { id } = category;
 
     const formData = new FormData();
-    formData.append('productCode',      formDataValue.productCode);
-    formData.append('productName',      formDataValue.productName);
-    formData.append('productPrice',     formDataValue.productPrice);
-    formData.append('quantity',         formDataValue.quantity);
-    formData.append('opening_value',    formDataValue.opening_value);
-    formData.append('reOrder_quantity', formDataValue.reOrder_quantity);
-    formData.append('category_id',      id.toString());
-    formData.append('frontImage',       file1);
-    formData.append('sideImage',        file2);
+      formData.append('productCode',      formDataValue.productCode);
+      formData.append('productName',      formDataValue.productName);
+      formData.append('productPrice',     formDataValue.productPrice);
+      formData.append('quantity',         formDataValue.quantity);
+      formData.append('opening_value',    formDataValue.opening_value);
+      formData.append('reOrder_quantity', formDataValue.reOrder_quantity);
+      formData.append('category_id',      id.toString());
+      formData.append('frontImage',       file1);
+      formData.append('sideImage',        file2);
 
 
     this.http.post('http://192.168.191.235:8000/api/products/store', formData).subscribe(
