@@ -68,7 +68,6 @@ export class CreateComponent {
         this.toastr.success('Product Create Successfylly');
       });
     }
-
   }
 
 

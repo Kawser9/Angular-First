@@ -1,0 +1,18 @@
+
+<div class="container card-body">
+  <div>
+      <h1>Create Product</h1>
+      <a routerLink="/products/index"><app-void-button [text]="'Back'" [btnClass]="'danger'"></app-void-button></a>
+
+  </div>
+  <br>
+  <form class="row g-3" [formGroup]="excel"  novalidate enctype="multipart/form-data">
+      <div class="col-md-6">
+        <label for="excel" class="form-label">Upload Excel File</label>
+        <input type="file" name="excel" class="form-control" id="" formControlName="excel">
+      </div>
+      <div class="col-md-12" style="margin-top: 15px">
+        <app-void-button [text]="'Save'" [btnClass]="'info'" ></app-void-button>
+      </div>
+  </form>
+</div>

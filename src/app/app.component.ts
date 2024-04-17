@@ -8,22 +8,22 @@ import { DataTablesModule } from 'angular-datatables';
 import { ToastrModule } from 'ngx-toastr';
 import { app } from '../../server';
 import { HttpClientModule } from '@angular/common/http';
+import { VoidButtonComponent } from "./component/void-button/void-button.component";
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule,
-            RouterOutlet,
-            RouterModule,
-            RouterLink,
-            ReactiveFormsModule,
-            NgSelectModule,
-            DataTablesModule,
-            FormsModule,
-            HttpClientModule,
-          ],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css',
+    imports: [CommonModule,
+        RouterOutlet,
+        RouterModule,
+        RouterLink,
+        ReactiveFormsModule,
+        NgSelectModule,
+        DataTablesModule,
+        FormsModule,
+        HttpClientModule, VoidButtonComponent]
 })
 export class AppComponent {
   title = 'First-Angular-CRUD';

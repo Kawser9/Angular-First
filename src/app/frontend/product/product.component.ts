@@ -4,13 +4,14 @@ import { ProductsService } from '../../product/products.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { VoidButtonComponent } from '../../component/void-button/void-button.component';
+import { SliderComponent } from "../slider/slider.component";
 
 @Component({
-  selector: 'app-product',
-  standalone: true,
-  imports: [CommonModule,RouterLink, VoidButtonComponent],
-  templateUrl: './product.component.html',
-  styleUrl: './product.component.css'
+    selector: 'app-product',
+    standalone: true,
+    templateUrl: './product.component.html',
+    styleUrl: './product.component.css',
+    imports: [CommonModule, RouterLink, VoidButtonComponent, SliderComponent]
 })
 export class ProductComponent implements OnInit{
 

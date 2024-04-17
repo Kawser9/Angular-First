@@ -8,6 +8,8 @@ import { CategoriesCreateComponent } from './pages/categories/categories-create/
 import { ButtonsComponent } from './component/buttons/buttons.component';
 import { ProductComponent } from './frontend/product/product.component';
 import { ViewProductComponent } from './frontend/view-product/view-product.component';
+import { UploadExcelComponent } from './pages/products/upload-excel/upload-excel.component';
+import { ExcelComponent } from './pages/products/excel/excel.component';
 
 export const routes: Routes = [
     {path:'products', redirectTo:'products/index', pathMatch:'full'},
@@ -23,6 +25,9 @@ export const routes: Routes = [
 
     {path: 'frontend', component:ProductComponent},
     {path: 'product/view/:id', component:ViewProductComponent},
+
+    {path: 'upload/excel', component:UploadExcelComponent},
+    {path: 'excel', component:ExcelComponent},
 ];
 
 export class AppRoutingModule {}
