@@ -123,11 +123,10 @@ export class CategoriesCreateComponent implements OnInit {
       formData.append('frontImage',       file1);
       formData.append('sideImage',        file2);
 
-
     this.http.post('http://192.168.191.235:8000/api/products/store', formData).subscribe(
       (res: any) => {
-        console.log(res.status);
-
+        // console.log(formData.append);
+        // console.log(res.status);
             this.toastr.success('Product Created Successfully');
 
       });

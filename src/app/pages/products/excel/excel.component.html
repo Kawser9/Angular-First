@@ -19,10 +19,27 @@
           </tr>
           </tbody>
         </table>
-        <button (click)="export()">Export!</button>
       </div>
-      <div class="col-md-12" style="margin-top: 15px">
+      <!-- <div class="col-md-12" style="margin-top: 15px">
         <app-void-button [text]="'Save'" [btnClass]="'info'" ></app-void-button>
-      </div>
+      </div> -->
   </form>
 </div>
+<!-- <form class="row g-3" novalidate enctype="multipart/form-data">
+  <div class="col-md-6">
+    <label for="excel" class="form-label">Upload Excel File</label>
+    <input type="file" #fileInput multiple="false" />
+    <table class="sjs-table">
+      <tbody>
+        <tr *ngFor="let row of data">
+          <td *ngFor="let val of row">
+            {{val}}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="col-md-12" style="margin-top: 15px">
+    <button type="submit" (click)="onSubmit($event)" class="btn btn-info">Save</button>
+  </div>
+</form> -->
